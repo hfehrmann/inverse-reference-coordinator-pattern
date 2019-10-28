@@ -8,15 +8,6 @@
 
 import Foundation
 
-protocol Event {}
-
 protocol Coordinator {
     func start()
-    func handle(_ event: Event)
-}
-
-extension Coordinator {
-    func handle(_ event: Event) {
-        fatalError("No event handler is provided for this coordinator")
-    }
 }

@@ -1,5 +1,5 @@
 //
-//  InitialCoordinator.swift
+//  ModalCoordinator.swift
 //  InverseReferenceCoordinatorPattern
 //
 //  Created by Hans Fehrmann on 28/10/19.
@@ -9,14 +9,15 @@
 import Foundation
 import UIKit
 
-protocol InitialCoordinator: AnyObject, Coordinator {
-    func handleInitialPush()
+protocol SecondCoordinator: AnyObject, Coordinator {
+    func handleRandom()
 }
 
-class InitialCoordinatorImpl: InitialCoordinator {
+class SecondCoordinatorImpl: SecondCoordinator {
 
     private let coordinator: AppCoordinator
     private weak var rootViewController: UINavigationController?
+    private weak var someController: SecondViewController?
 
     init(coordinator: AppCoordinator, rootViewController: UINavigationController) {
         self.coordinator = coordinator
@@ -24,14 +25,14 @@ class InitialCoordinatorImpl: InitialCoordinator {
     }
 
     func start() {
-        let initialController = InitialViewController(coordinator: self)
-        self.rootViewController?.setViewControllers([initialController], animated: false)
+        let initialController = SecondViewController(coordinator: self)
+        self.rootViewController?.present(initialController, animated: false, completion: nil)
     }
 }
 
 // MARK: - Coordinator Handle
-extension InitialCoordinatorImpl {
-    func handleInitialPush() {
-        
+extension SecondCoordinatorImpl {
+    func handleRandom() {
+        self.someController?.executeRandom()
     }
 }

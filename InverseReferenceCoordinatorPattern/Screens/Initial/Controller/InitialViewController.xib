@@ -23,6 +23,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5So-UV-F1s">
                     <rect key="frame" x="155.5" y="328.5" width="64" height="30"/>
                     <state key="normal" title="Push Me!"/>
+                    <connections>
+                        <action selector="didClickInPushMe" destination="-1" eventType="touchUpInside" id="HZz-xR-C1F"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -15,6 +15,9 @@
 		105316D72367534E00B78463 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105316D62367534E00B78463 /* InitialViewController.swift */; };
 		105316DA2367536B00B78463 /* InitialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105316D92367536B00B78463 /* InitialCoordinator.swift */; };
 		105316DE2367546100B78463 /* InitialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105316DD2367546100B78463 /* InitialViewController.xib */; };
+		105316E22367596200B78463 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105316E12367596200B78463 /* SecondViewController.xib */; };
+		105316E42367596C00B78463 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105316E32367596C00B78463 /* SecondViewController.swift */; };
+		105316E72367599200B78463 /* SecondCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105316E62367599200B78463 /* SecondCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		105316D62367534E00B78463 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		105316D92367536B00B78463 /* InitialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCoordinator.swift; sourceTree = "<group>"; };
 		105316DD2367546100B78463 /* InitialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InitialViewController.xib; sourceTree = "<group>"; };
+		105316E12367596200B78463 /* SecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		105316E32367596C00B78463 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		105316E62367599200B78463 /* SecondCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				105316DB2367536F00B78463 /* Initial */,
+				105316DF2367593E00B78463 /* Modal */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -111,6 +118,32 @@
 				105316DD2367546100B78463 /* InitialViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		105316DF2367593E00B78463 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				105316E02367594D00B78463 /* Controller */,
+				105316E52367598000B78463 /* Coordinator */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		105316E02367594D00B78463 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				105316E32367596C00B78463 /* SecondViewController.swift */,
+				105316E12367596200B78463 /* SecondViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		105316E52367598000B78463 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				105316E62367599200B78463 /* SecondCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105316E22367596200B78463 /* SecondViewController.xib in Resources */,
 				105316C823674DBB00B78463 /* LaunchScreen.storyboard in Resources */,
 				105316C523674DBB00B78463 /* Assets.xcassets in Resources */,
 				105316DE2367546100B78463 /* InitialViewController.xib in Resources */,
@@ -188,6 +222,8 @@
 				105316BE23674DBA00B78463 /* AppDelegate.swift in Sources */,
 				105316D22367512400B78463 /* Coordinator.swift in Sources */,
 				105316DA2367536B00B78463 /* InitialCoordinator.swift in Sources */,
+				105316E72367599200B78463 /* SecondCoordinator.swift in Sources */,
+				105316E42367596C00B78463 /* SecondViewController.swift in Sources */,
 				105316D72367534E00B78463 /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

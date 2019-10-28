@@ -11,7 +11,7 @@ import UIKit
 
 class InitialViewController: UIViewController {
 
-     private let coordinator: InitialCoordinator
+    private let coordinator: InitialCoordinator
 
     init(coordinator: InitialCoordinator) {
         self.coordinator = coordinator
@@ -21,5 +21,9 @@ class InitialViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @IBAction func didClickInPushMe() {
+        self.coordinator.handleInitialPush()
     }
 }

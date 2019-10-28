@@ -18,7 +18,7 @@ class AppCoordinator: Coordinator {
     }
 
     func start() {
-        let rootViewController = UIViewController()
+        let rootViewController = UINavigationController(rootViewController: UIViewController())
         let initialCoordinator = InitialCoordinatorImpl(coordinator: self, rootViewController: rootViewController)
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
