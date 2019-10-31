@@ -25,8 +25,12 @@ class SecondViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLoad() {
+        self.executeRandom()
+    }
+
     @IBAction func didTapRandom() {
-        coordinator.handleRandom()
+        self.coordinator.handleRandom()
     }
 
     func executeRandom() {
@@ -35,7 +39,7 @@ class SecondViewController: UIViewController {
         let numbers = "0123456789"
         let collection = lowerLetters + upperLetters + numbers
         let randomText = (1...20).compactMap { _ in collection.randomElement() }
-        randomLabel.text = String(randomText)
+        self.randomLabel.text = String(randomText)
     }
 
 }

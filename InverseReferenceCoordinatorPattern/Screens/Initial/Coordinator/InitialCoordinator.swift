@@ -32,6 +32,17 @@ class InitialCoordinatorImpl: InitialCoordinator {
 // MARK: - Coordinator Handle
 extension InitialCoordinatorImpl {
     func handleInitialPush() {
-        
+        guard let navigationController = self.rootViewController else { return }
+        let secondCoordinator = SecondCoordinatorImpl(
+            parentCoordinator: self,
+            rootViewController: navigationController
+        )
+        secondCoordinator.start()
+    }
+}
+
+extension InitialCoordinatorImpl: SecondCoordinatorParent {
+    func didDeinit() {
+        debugPrint("Notification on pop to Initial Controller")
     }
 }

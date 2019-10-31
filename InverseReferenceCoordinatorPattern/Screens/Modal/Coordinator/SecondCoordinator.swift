@@ -13,20 +13,29 @@ protocol SecondCoordinator: AnyObject, Coordinator {
     func handleRandom()
 }
 
+protocol SecondCoordinatorParent: Coordinator {
+    func didDeinit()
+}
+
 class SecondCoordinatorImpl: SecondCoordinator {
 
-    private let coordinator: AppCoordinator
+    private let parentCoordinator: SecondCoordinatorParent
     private weak var rootViewController: UINavigationController?
     private weak var someController: SecondViewController?
 
-    init(coordinator: AppCoordinator, rootViewController: UINavigationController) {
-        self.coordinator = coordinator
+    deinit {
+        self.parentCoordinator.didDeinit()
+    }
+
+    init(parentCoordinator: SecondCoordinatorParent, rootViewController: UINavigationController) {
+        self.parentCoordinator = parentCoordinator
         self.rootViewController = rootViewController
     }
 
     func start() {
         let initialController = SecondViewController(coordinator: self)
-        self.rootViewController?.present(initialController, animated: false, completion: nil)
+        self.rootViewController?.pushViewController(initialController, animated: true)
+        self.someController = initialController
     }
 }
 
