@@ -19,9 +19,14 @@ class AppCoordinator: Coordinator {
 
     func start() {
         let rootViewController = UINavigationController(rootViewController: UIViewController())
-        let initialCoordinator = InitialCoordinatorImpl(coordinator: self, rootViewController: rootViewController)
+        let initialCoordinator = InitialCoordinatorImpl(
+            parentCoordinator: self,
+            rootViewController: rootViewController
+        )
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         initialCoordinator.start()
     }
 }
+
+extension AppCoordinator: InitialCoordinatorParent { }

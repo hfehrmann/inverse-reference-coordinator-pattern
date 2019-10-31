@@ -13,13 +13,15 @@ protocol InitialCoordinator: AnyObject, Coordinator {
     func handleInitialPush()
 }
 
+protocol InitialCoordinatorParent: Coordinator {}
+
 class InitialCoordinatorImpl: InitialCoordinator {
 
-    private let coordinator: AppCoordinator
+    private let parentCoordinator: InitialCoordinatorParent
     private weak var rootViewController: UINavigationController?
 
-    init(coordinator: AppCoordinator, rootViewController: UINavigationController) {
-        self.coordinator = coordinator
+    init(parentCoordinator: InitialCoordinatorParent, rootViewController: UINavigationController) {
+        self.parentCoordinator = parentCoordinator
         self.rootViewController = rootViewController
     }
 
