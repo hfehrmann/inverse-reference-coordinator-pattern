@@ -9,13 +9,18 @@
 import Foundation
 import UIKit
 
+protocol SecondViewEscapeHandler {
+    func handleRandom()
+    func didClickEscape()
+}
+
 class SecondViewController: UIViewController {
 
-    private let coordinator: SecondCoordinator
+    private let coordinator: SecondViewEscapeHandler
 
     @IBOutlet weak var randomLabel: UILabel!
 
-    init(coordinator: SecondCoordinator) {
+    init(coordinator: SecondViewEscapeHandler) {
         self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
@@ -33,6 +38,10 @@ class SecondViewController: UIViewController {
         self.coordinator.handleRandom()
     }
 
+    @IBAction func didClickEscape() {
+        self.coordinator.didClickEscape()
+    }
+
     func executeRandom() {
         let lowerLetters = "abcdefghijklmnopqrstuvwxyz"
         let upperLetters = lowerLetters.uppercased()
@@ -41,5 +50,4 @@ class SecondViewController: UIViewController {
         let randomText = (1...20).compactMap { _ in collection.randomElement() }
         self.randomLabel.text = String(randomText)
     }
-
 }

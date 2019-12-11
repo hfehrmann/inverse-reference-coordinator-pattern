@@ -34,12 +34,21 @@
                         <action selector="didTapRandom" destination="-1" eventType="touchUpInside" id="A30-4y-4pP"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXL-6W-9oM">
+                    <rect key="frame" x="113" y="612" width="149" height="30"/>
+                    <state key="normal" title="Escape this controller"/>
+                    <connections>
+                        <action selector="didClickEscape" destination="-1" eventType="touchUpInside" id="rT3-Be-BsI"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9S5-Lx-WRu" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="0GO-Xn-mMQ"/>
                 <constraint firstItem="9S5-Lx-WRu" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Ct5-Wb-r3t"/>
                 <constraint firstItem="JVZ-7o-sBa" firstAttribute="top" secondItem="9S5-Lx-WRu" secondAttribute="bottom" constant="20" id="pad-vx-IQV"/>
+                <constraint firstItem="TXL-6W-9oM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="wrq-5f-NMK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="TXL-6W-9oM" secondAttribute="bottom" constant="25" id="zui-6y-oFE"/>
                 <constraint firstItem="JVZ-7o-sBa" firstAttribute="centerX" secondItem="9S5-Lx-WRu" secondAttribute="centerX" id="zyc-cR-NHc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

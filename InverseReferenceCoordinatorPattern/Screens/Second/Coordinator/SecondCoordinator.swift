@@ -9,17 +9,14 @@
 import Foundation
 import UIKit
 
-protocol SecondCoordinator: AnyObject, Coordinator {
-    func handleRandom()
-}
-
-protocol SecondCoordinatorParent: Coordinator {
+protocol SecondCoordinator: Coordinator { }
+protocol SecondCoordinatorEscapeHandler: Coordinator {
     func didDeinit()
 }
 
 class SecondCoordinatorImpl: SecondCoordinator {
 
-    private let parentCoordinator: SecondCoordinatorParent
+    private let parentCoordinator: SecondCoordinatorEscapeHandler
     private weak var rootViewController: UINavigationController?
     private weak var someController: SecondViewController?
 
@@ -27,7 +24,7 @@ class SecondCoordinatorImpl: SecondCoordinator {
         self.parentCoordinator.didDeinit()
     }
 
-    init(parentCoordinator: SecondCoordinatorParent, rootViewController: UINavigationController) {
+    init(parentCoordinator: SecondCoordinatorEscapeHandler, rootViewController: UINavigationController) {
         self.parentCoordinator = parentCoordinator
         self.rootViewController = rootViewController
     }
@@ -40,7 +37,11 @@ class SecondCoordinatorImpl: SecondCoordinator {
 }
 
 // MARK: - Coordinator Handle
-extension SecondCoordinatorImpl {
+extension SecondCoordinatorImpl: SecondViewEscapeHandler {
+    func didClickEscape() {
+        self.rootViewController?.popViewController(animated: true)
+    }
+
     func handleRandom() {
         self.someController?.executeRandom()
     }

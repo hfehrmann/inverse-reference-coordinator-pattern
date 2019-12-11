@@ -29,4 +29,4 @@ class AppCoordinator: Coordinator {
     }
 }
 
-extension AppCoordinator: InitialCoordinatorParent { }
+extension AppCoordinator: InitialCoordinatorEscapeHandler { }

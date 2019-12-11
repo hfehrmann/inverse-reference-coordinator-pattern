@@ -11,16 +11,17 @@ import UIKit
 
 protocol InitialCoordinator: AnyObject, Coordinator {
     func handleInitialPush()
+    func handleInitialPresent()
 }
 
-protocol InitialCoordinatorParent: Coordinator {}
+protocol InitialCoordinatorEscapeHandler: Coordinator {}
 
 class InitialCoordinatorImpl: InitialCoordinator {
 
-    private let parentCoordinator: InitialCoordinatorParent
+    private let parentCoordinator: InitialCoordinatorEscapeHandler
     private weak var rootViewController: UINavigationController?
 
-    init(parentCoordinator: InitialCoordinatorParent, rootViewController: UINavigationController) {
+    init(parentCoordinator: InitialCoordinatorEscapeHandler, rootViewController: UINavigationController) {
         self.parentCoordinator = parentCoordinator
         self.rootViewController = rootViewController
     }
@@ -41,10 +42,21 @@ extension InitialCoordinatorImpl {
         )
         secondCoordinator.start()
     }
+
+    func handleInitialPresent() {
+        guard let navigationController = self.rootViewController else { return }
+        let modalCoordinator = ModalCoordinatorImpl(
+            parentCoordinator: self,
+            rootViewController: navigationController
+        )
+        modalCoordinator.start()
+    }
 }
 
-extension InitialCoordinatorImpl: SecondCoordinatorParent {
+extension InitialCoordinatorImpl: SecondCoordinatorEscapeHandler {
     func didDeinit() {
         debugPrint("Notification on pop to Initial Controller")
     }
 }
+
+extension InitialCoordinatorImpl: ModalCoordinatorEscapeHandler { }

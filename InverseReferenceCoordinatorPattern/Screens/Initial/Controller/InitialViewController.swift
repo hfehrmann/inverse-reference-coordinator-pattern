@@ -26,4 +26,8 @@ class InitialViewController: UIViewController {
     @IBAction func didClickInPushMe() {
         self.coordinator.handleInitialPush()
     }
+
+    @IBAction func didClickInPresentMe() {
+        self.coordinator.handleInitialPresent()
+    }
 }

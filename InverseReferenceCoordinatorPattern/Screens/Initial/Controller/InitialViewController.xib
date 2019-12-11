@@ -20,18 +20,30 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5So-UV-F1s">
-                    <rect key="frame" x="155.5" y="328.5" width="64" height="30"/>
-                    <state key="normal" title="Push Me!"/>
-                    <connections>
-                        <action selector="didClickInPushMe" destination="-1" eventType="touchUpInside" id="HZz-xR-C1F"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8P6-lG-X4s">
+                    <rect key="frame" x="146" y="308.5" width="83" height="70"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlu-gZ-2s3">
+                            <rect key="frame" x="0.0" y="0.0" width="83" height="30"/>
+                            <state key="normal" title="Present Me!"/>
+                            <connections>
+                                <action selector="didClickInPresentMe" destination="-1" eventType="touchUpInside" id="L1c-6s-Rax"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5So-UV-F1s">
+                            <rect key="frame" x="0.0" y="40" width="83" height="30"/>
+                            <state key="normal" title="Push Me!"/>
+                            <connections>
+                                <action selector="didClickInPushMe" destination="-1" eventType="touchUpInside" id="HZz-xR-C1F"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5So-UV-F1s" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="9Un-qS-Lnr"/>
-                <constraint firstItem="5So-UV-F1s" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Eym-2V-zP8"/>
+                <constraint firstItem="8P6-lG-X4s" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="2oh-kg-7p4"/>
+                <constraint firstItem="8P6-lG-X4s" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2rf-ql-ZnO"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
